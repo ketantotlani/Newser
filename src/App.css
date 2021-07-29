@@ -1,0 +1,311 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Slab";
+  box-sizing: border-box;
+}
+nav {
+  padding: 1.5% 5% 1.5% 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+  background: #1b1b1d;
+  color: #fff;
+}
+nav a {
+  font-size: 28px;
+  color: whitesmoke;
+  font-family: monospace;
+}
+nav input {
+  background-color: #272727;
+  border: none;
+  color: whitesmoke;
+  padding: 10px;
+}
+
+nav button{
+ background: #000;
+ border: none;
+ padding: 10px;
+ color: whitesmoke;
+}
+.card {
+  width: 200px;
+}
+.logo {
+  width: 80px;
+  height: 80px;
+}
+a {
+  text-decoration: none;
+}
+.maincontainer {
+  padding: 2% 10% 2% 10%; 
+  /* overflow-y: auto; */
+}
+
+.maincontainer .filterblock{
+  display: flex;
+  justify-content: space-evenly;
+  /* justify-content: space-between; */
+  /* margin-bottom: 2%; */
+  /* margin-top: 2%; */
+  padding: 2%;
+}
+.maincontainer .filter button{
+  background: #000;
+  border: none;
+  padding: 10px;
+  color: whitesmoke;
+}
+.maincontainer .heading{
+  font-family: monospace;
+  font-size: 38px;
+  display: none;
+}
+.maincontainer select{
+  max-width: 50px;
+}
+.cardcontainer {
+  /* padding: 5% 10% 0% 10% ; */
+  /* padding: 30px 170px; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 50px;
+  padding: 40px 0 ;
+}
+.cardcontainer .card {
+  min-width: 260px;
+  max-width: 320px;
+
+  width: fit-content;
+  background: #fff;
+  box-shadow: 0 0 50px rgb(0 0 0 / 10%);
+  height: 100%;
+  text-decoration: none;
+  color: #000;
+}
+.card > img {
+  width: 100%;
+}
+.filterbtn{
+  display: none;
+}
+.card > div {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
+}
+.sourceName {
+  display: flex;
+  align-items: center;
+}
+.sourceName > span {
+  display: inline;
+  background: rgba(38, 0, 128, 0.226);
+  font-size: 11px;
+  padding: 5px 6px;
+  color: rgba(0, 11, 43, 0.534);
+  border-radius: 3px;
+}
+.sourceName > p {
+  font-size: 10px;
+  font-weight: 500;
+  padding-left: 10px;
+}
+.card > div > h1 {
+  font-size: 25px;
+  letter-spacing: -0.6px;
+  line-height: 1.3em;
+  padding: 10px 0;
+  font-weight: 700;
+}
+.card > div > p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+.footer{
+  background-color: #1B1B1D;
+  height: 80px;
+  padding: 2%;
+  text-align: center;
+  color: white;
+}
+.loadbtn{
+  display: flex;
+  justify-content: center;
+}
+.displayblock {
+  display: none;
+}
+.more{
+  background: #000;
+  border: none;
+  padding: 10px;
+  color: whitesmoke;
+}
+@media(max-width:768px){
+
+  nav {
+    padding: 1.5% 5% 1.5% 5%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+    background: #1b1b1d;
+    color: #fff;
+  }
+  nav a {
+    font-size: 28px;
+    display: grid;
+    justify-content: center;
+    color: whitesmoke;
+    font-family: monospace;
+    margin-bottom: 15px;
+  }
+  nav input {
+    background-color: #272727;
+    border: none;
+    color: whitesmoke;
+    padding: 10px;
+    margin-bottom: 5px;
+  }
+  
+  nav button{
+   background: #000;
+   border: none;
+   padding: 10px;
+   color: whitesmoke;
+  }
+  .card {
+    width: 200px;
+  }
+  .logo {
+    width: 80px;
+    height: 80px;
+  }
+  a {
+    text-decoration: none;
+  }
+  .maincontainer {
+    padding: 2% 11%; 
+    overflow-y: auto;
+  }
+  .maincontainer .filter{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;    
+    transition: 1s;
+    margin-block: 20px;
+  
+  }
+  .maincontainer .filterblock{
+    display: flex;
+    flex-wrap: wrap;
+    display: none;
+    justify-content: center;
+    transition: 1s;
+    
+  }
+  .displayblock{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .maincontainer .filter button{
+    background: #000;
+    border: none;
+    margin-top: 20px;
+    padding: 10px;
+    color: whitesmoke;
+  }
+  .maincontainer .filter :nth-child(2){
+      margin: 2px;
+
+  }
+  .filterbtn{
+    display: block;
+  }
+  .toggleclass{
+    display: none;
+  }
+  .cardcontainer {
+    padding:0% ;
+    /* padding: 30px 170px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* align-items: center; */
+    /* align-content: center; */
+    /* grid-template-columns: repeat(3, 1fr); */
+    /* grid-gap: 50px; */
+
+  }
+  .cardcontainer .card {
+    /* min-width: 290px; */
+    max-width: 320px;
+    /* margin: auto;
+    background: #fff;
+    box-shadow: 0 0 50px rgb(0 0 0 / 10%);
+    height: 100%;
+    text-decoration: none;
+    color: #000; */
+  }
+  .footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .more{
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+}
+
+@media(min-width:769px) and (max-width:1024px){
+  .maincontainer {
+    padding: 2% 11%; 
+    overflow-y: auto;
+  }
+  .maincontainer .filter{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;    
+    transition: 1s;
+    margin-block: 20px;
+  
+  }
+  .cardcontainer {
+    /* padding:0% ; */
+    /* padding: 30px 170px; */
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    /* align-content: center; */
+    grid-template-columns: repeat(2, 1fr);
+    /* grid-gap: 50px; */
+
+  }
+  .maincontainer .filterblock{
+    display: flex;
+    flex-wrap: wrap;
+    /* display: none; */
+    justify-content: center;
+    transition: 1s;
+    
+  }
+  .displayblock{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+}
