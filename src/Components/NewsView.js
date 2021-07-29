@@ -3,10 +3,12 @@ import React, { Component } from 'react'
 import Select from 'react-select'
 import {category, country, language} from './Dropdowndata'
 
+
 // const URL = 'https://newsapi.org/v2/top-headlines?language=en&apiKey=f9b7b9cdc0a7475aa6f95b84e9699359'
 
 
 
+const proxyUrl = "https://cors-anywhere.herokuapp.com/"
 
 export default class NewsView extends Component {
     
@@ -27,7 +29,7 @@ export default class NewsView extends Component {
     
 
     componentDidMount() {
-        axios.get(`https://newsapi.org/v2/top-headlines?language=en&page=${this.state.page}&apiKey=01bb4aac5d0143f6872a690cf6b51dd9`)
+        axios.get(`${proxyUrl}https://newsapi.org/v2/top-headlines?language=en&page=${this.state.page}&apiKey=01bb4aac5d0143f6872a690cf6b51dd9`)
         .then(res => {
             console.log(res);
             this.setState({
