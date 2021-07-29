@@ -27,7 +27,7 @@ export default class NewsView extends Component {
     
 
     componentDidMount() {
-        axios.get(`https://newsapi.org/v2/top-headlines?language=en&page=${this.state.page}&apiKey=8f009b15893d4f7eb22c56fbe89e11d6`)
+        axios.get(`https://newsapi.org/v2/top-headlines?language=en&page=${this.state.page}&apiKey=01bb4aac5d0143f6872a690cf6b51dd9`)
         .then(res => {
             console.log(res);
             this.setState({
@@ -44,7 +44,7 @@ export default class NewsView extends Component {
 
             });
             if(this.state.filter){
-                axios.get(`https://newsapi.org/v2/top-headlines?country=${this.state.country}&language=${this.state.language}&category=${this.state.category}&page=${this.state.page}&apiKey=8f009b15893d4f7eb22c56fbe89e11d6`)
+                axios.get(`https://newsapi.org/v2/top-headlines?country=${this.state.country}&language=${this.state.language}&category=${this.state.category}&page=${this.state.page}&apiKey=01bb4aac5d0143f6872a690cf6b51dd9`)
             .then(res => {
                 console.log(res);
                 this.setState({
@@ -56,7 +56,7 @@ export default class NewsView extends Component {
         }
    
           else  {
-            axios.get(`https://newsapi.org/v2/top-headlines?language=en&page=${this.state.page}&apiKey=8f009b15893d4f7eb22c56fbe89e11d6`)
+            axios.get(`https://newsapi.org/v2/top-headlines?language=en&page=${this.state.page}&apiKey=01bb4aac5d0143f6872a690cf6b51dd9`)
             .then(res => {
                 console.log(res);
                 this.setState({
@@ -68,7 +68,7 @@ export default class NewsView extends Component {
 
 
     setFilter = () => {
-        axios.get(`https://newsapi.org/v2/top-headlines?country=${this.state.country}&language=${this.state.language}&category=${this.state.category}&page=${this.state.page}&apiKey=8f009b15893d4f7eb22c56fbe89e11d6`)
+        axios.get(`https://newsapi.org/v2/top-headlines?country=${this.state.country}&language=${this.state.language}&category=${this.state.category}&page=${this.state.page}&apiKey=01bb4aac5d0143f6872a690cf6b51dd9`)
         .then(res => {
             console.log(res);
             this.setState({
