@@ -29,7 +29,7 @@ export default class Nav extends Component {
         return (
             <nav>
 
-                    <Link  to="/">Newser</Link>
+                    <Link  to="/">Newzer</Link>
                     <form >
                         <input type="text" name="newssearch" id="newssearch" placeholder="Search For News" />
                         <button onClick={this.onSearchInput} >Search</button>

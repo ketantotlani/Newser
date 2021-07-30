@@ -44,7 +44,7 @@ export default class NewsView extends Component {
 
             });
             if(this.state.filter){
-                axios.get(`https://gnews.io/api/v4/top-headlines?&lang=${this.state.language}&country=${this.state.country}&topic=${this.state.category}token=f8868316d6513029116b8eff707a248a`)
+                axios.get(`https://gnews.io/api/v4/top-headlines?&lang=${this.state.language}&country=${this.state.country}&topic=${this.state.category}&token=f8868316d6513029116b8eff707a248aa`)
             .then(res => {
                 console.log(res);
                 this.setState({
@@ -68,7 +68,7 @@ export default class NewsView extends Component {
 
 
     setFilter = () => {
-        axios.get(`https://gnewsapi.net/api/search?q=&country=${this.state.country}&lang=${this.state.language}&limit=10&api_token=8f009b15893d4f7eb22c56fbe89e11d6`)
+        axios.get(`https://gnews.io/api/v4/top-headlines?&lang=${this.state.language}&country=${this.state.country}&topic=${this.state.category}&token=f8868316d6513029116b8eff707a248a`)
         .then(res => {
             console.log(res);
             this.setState({
@@ -116,7 +116,7 @@ export default class NewsView extends Component {
             (this.props.inputData.articles.map((item, key) => {
                 return(
                     <a className="card" key={key} href={item.url}>
-                            <img src={(!item.image === null) ? item.image : item.urlToImage} alt="Not Found"/>
+                            <img src={item.image } alt="Not Found"/>
                             <div>
                                 <h3 className="sourceName">
                                     <span>{item.source.name}</span>

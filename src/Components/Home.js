@@ -17,7 +17,7 @@ export default class Home extends Component {
 
     getSearchInput = (search) =>{
 
-        axios.get(`https://newsapi.org/v2/everything?q=${search}&apiKey=8055b3bbc38746ba84e9053c510aef3a`)
+        axios.get(`https://gnews.io/api/v4/search?q=${search}&token=f8868316d6513029116b8eff707a248a`)
         .then((res) => {
           console.log(res);
           this.setState({
