@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { Component } from 'react'
 import Select from 'react-select'
 import {category, country, language} from './Dropdowndata'
-// import Notiflix from "notiflix-react";
+import Notiflix from "notiflix-react";
 
 
 // const URL = 'https://newsapi.org/v2/top-headlines?language=en&apiKey=f9b7b9cdc0a7475aa6f95b84e9699359'
@@ -39,7 +39,7 @@ export default class NewsView extends Component {
     }
 
     fetchMoreData = (e) => {
-        // Notiflix.Notify.Info('Because of Api Tier Limitations Same Data is Repeated On Read More.',);
+        Notiflix.Notify.Info('Because of Api Tier Limitations Same Data is Repeated On Read More.',);
         // Notiflix.Report.Info('Information','"Because of Api Free Limitations Read More Pagination Displays Same Data"','Okay');
         setTimeout(() => {
              console.log(e)

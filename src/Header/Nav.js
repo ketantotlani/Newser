@@ -34,7 +34,7 @@ export default class Nav extends Component {
                         <input type="text" name="newssearch" id="newssearch" placeholder="Search For News" />
                         <button onClick={this.onSearchInput} >Search</button>
                     </form>
-                
+
             </nav>
         )
     }
