@@ -2,6 +2,8 @@ import axios from 'axios'
 import React, { Component } from 'react'
 import Select from 'react-select'
 import {category, country, language} from './Dropdowndata'
+// import Notiflix from "notiflix-react";
+
 
 // const URL = 'https://newsapi.org/v2/top-headlines?language=en&apiKey=f9b7b9cdc0a7475aa6f95b84e9699359'
 
@@ -27,7 +29,7 @@ export default class NewsView extends Component {
     
 
     componentDidMount() {
-        axios.get(`https://gnews.io/api/v4/top-headlines?token=f8868316d6513029116b8eff707a248a`)
+        axios.get(`https://gnews.io/api/v4/top-headlines?token=13df5ad26253c2938ef7bcbfef2b5a96`)
         .then(res => {
             console.log(res);
             this.setState({
@@ -37,6 +39,8 @@ export default class NewsView extends Component {
     }
 
     fetchMoreData = (e) => {
+        // Notiflix.Notify.Info('Because of Api Tier Limitations Same Data is Repeated On Read More.',);
+        // Notiflix.Report.Info('Information','"Because of Api Free Limitations Read More Pagination Displays Same Data"','Okay');
         setTimeout(() => {
              console.log(e)
                 this.setState({
@@ -44,7 +48,7 @@ export default class NewsView extends Component {
 
             });
             if(this.state.filter){
-                axios.get(`https://gnews.io/api/v4/top-headlines?&lang=${this.state.language}&country=${this.state.country}&topic=${this.state.category}&token=f8868316d6513029116b8eff707a248aa`)
+                axios.get(`https://gnews.io/api/v4/top-headlines?&lang=${this.state.language}&country=${this.state.country}&topic=${this.state.category}&token=13df5ad26253c2938ef7bcbfef2b5a96`)
             .then(res => {
                 console.log(res);
                 this.setState({
@@ -56,19 +60,18 @@ export default class NewsView extends Component {
         }
    
           else  {
-            axios.get(`https://gnews.io/api/v4/top-headlines?token=f8868316d6513029116b8eff707a248a`)
+            axios.get(`https://gnews.io/api/v4/top-headlines?token=13df5ad26253c2938ef7bcbfef2b5a96`)
             .then(res => {
                 console.log(res);
                 this.setState({
                     newsdata: this.state.newsdata.concat(res.data.articles)
                 })
             }).catch(err => console.log(err));}
-        }, 1000);
+        }, 500);
       };
 
-
     setFilter = () => {
-        axios.get(`https://gnews.io/api/v4/top-headlines?&lang=${this.state.language}&country=${this.state.country}&topic=${this.state.category}&token=f8868316d6513029116b8eff707a248a`)
+        axios.get(`https://gnews.io/api/v4/top-headlines?&lang=${this.state.language}&country=${this.state.country}&topic=${this.state.category}&token=13df5ad26253c2938ef7bcbfef2b5a96`)
         .then(res => {
             console.log(res);
             this.setState({
@@ -169,7 +172,7 @@ export default class NewsView extends Component {
 
           </div>
                {( this.props.inputData.articles  ) ?  '' :<div className="loadbtn">
-                    <button className="more" onClick={this.fetchMoreData }>Load More</button>
+                    <button className="more" onClick={this.fetchMoreData }>Read More</button>
                     </div>}
                 
         </div>
