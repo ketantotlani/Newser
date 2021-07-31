@@ -17,19 +17,21 @@ export default class NewsView extends Component {
         super(props)
         this.state = {
             newsdata: [],
+            searchdata: [],
             country: '',
             category: '',
             language: '',
             page: 1,
             filter: false,
             isvisible: false,
+            fetchData: false
 
         }
     }
     
 
     componentDidMount() {
-        axios.get(`https://gnews.io/api/v4/top-headlines?token=13df5ad26253c2938ef7bcbfef2b5a96`)
+        axios.get(`https://gnews.io/api/v4/top-headlines?token=f8868316d6513029116b8eff707a248a`)
         .then(res => {
             console.log(res);
             this.setState({
@@ -37,6 +39,16 @@ export default class NewsView extends Component {
             })
         }).catch(err => console.log(err));
     }
+    static getDerivedStateFromProps(props, state) {
+        // console.log(props);
+        // console.log(state);
+        if (props.inputData.articles !== state.searchdata && state.fetchData === false ) {
+          return {
+            searchdata: props.inputData.articles,
+          };
+        }
+        return '';
+      }
 
     fetchMoreData = (e) => {
         Notiflix.Notify.Info('Because of Api Tier Limitations Same Data is Repeated On Read More.',);
@@ -48,7 +60,7 @@ export default class NewsView extends Component {
 
             });
             if(this.state.filter){
-                axios.get(`https://gnews.io/api/v4/top-headlines?&lang=${this.state.language}&country=${this.state.country}&topic=${this.state.category}&token=13df5ad26253c2938ef7bcbfef2b5a96`)
+                axios.get(`https://gnews.io/api/v4/top-headlines?&lang=${this.state.language}&country=${this.state.country}&topic=${this.state.category}&token=f8868316d6513029116b8eff707a248a`)
             .then(res => {
                 console.log(res);
                 this.setState({
@@ -58,9 +70,22 @@ export default class NewsView extends Component {
                 })
             }).catch(err => console.log(err));
         }
+
+        if(this.state.searchdata){
+                axios.get(`https://gnews.io/api/v4/search?q=${this.props.searchKeyword}&token=f8868316d6513029116b8eff707a248a`)
+            .then(res => {
+                console.log(res);
+                this.setState({
+                    searchdata: this.state.searchdata.concat(res.data.articles),
+                    fetchData: true
+                })
+                
+            }).catch(err => console.log(err));
+        
+        }
    
           else  {
-            axios.get(`https://gnews.io/api/v4/top-headlines?token=13df5ad26253c2938ef7bcbfef2b5a96`)
+            axios.get(`https://gnews.io/api/v4/top-headlines?token=f8868316d6513029116b8eff707a248a`)
             .then(res => {
                 console.log(res);
                 this.setState({
@@ -71,7 +96,7 @@ export default class NewsView extends Component {
       };
 
     setFilter = () => {
-        axios.get(`https://gnews.io/api/v4/top-headlines?&lang=${this.state.language}&country=${this.state.country}&topic=${this.state.category}&token=13df5ad26253c2938ef7bcbfef2b5a96`)
+        axios.get(`https://gnews.io/api/v4/top-headlines?&lang=${this.state.language}&country=${this.state.country}&topic=${this.state.category}&token=f8868316d6513029116b8eff707a248a`)
         .then(res => {
             console.log(res);
             this.setState({
@@ -113,10 +138,10 @@ export default class NewsView extends Component {
             </div>
           <div  className="cardcontainer">
               
-          {(this.props.inputData.articles
+          {(this.state.searchdata
           ? 
           
-            (this.props.inputData.articles.map((item, key) => {
+            (this.state.searchdata.map((item, key) => {
                 return(
                     <a className="card" key={key} href={item.url}>
                             <img src={item.image } alt="Not Found"/>
@@ -171,9 +196,9 @@ export default class NewsView extends Component {
               } */}
 
           </div>
-               {( this.props.inputData.articles  ) ?  '' :<div className="loadbtn">
+          <div className="loadbtn">
                     <button className="more" onClick={this.fetchMoreData }>Read More</button>
-                    </div>}
+                    </div>
                 
         </div>
         )
